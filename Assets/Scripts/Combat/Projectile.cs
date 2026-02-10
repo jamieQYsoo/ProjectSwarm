@@ -15,12 +15,6 @@ public class Projectile : MonoBehaviour
         t = 0f;
     }
 
-    void Start()
-    {
-        Debug.Log("Projectile spawned: " + name);
-    }
-
-
     void Update()
     {
         transform.position += (Vector3)(dir * speed * Time.deltaTime);
@@ -31,8 +25,6 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Hit: " + other.name);
-
         var hp = other.GetComponent<EnemyHealth>();
         if (hp != null)
         {
@@ -40,5 +32,4 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
 }
