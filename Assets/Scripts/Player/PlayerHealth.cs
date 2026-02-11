@@ -12,6 +12,8 @@ public class PlayerHealth : MonoBehaviour
     public int MaxHp => maxHp;
     public bool IsInvulnerable => invulnTimer > 0f;
 
+    public GameOverUI gameOverUI;
+
     void Awake() => hp = maxHp;
 
     void Update()
@@ -33,6 +35,6 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         Time.timeScale = 0f;
-        Debug.Log("GAME OVER");
+        gameOverUI?.Show();
     }
 }
