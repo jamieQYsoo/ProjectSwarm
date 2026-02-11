@@ -17,4 +17,15 @@ public class EnemyChase : MonoBehaviour
         Vector2 dir = (player.position - transform.position).normalized;
         transform.position += (Vector3)(dir * speed * Time.deltaTime);
     }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        var ph = other.GetComponentInParent<PlayerHealth>();
+        if (ph != null)
+        {
+            ph.TakeDamage(1);
+        }
+    }
+
+
 }
