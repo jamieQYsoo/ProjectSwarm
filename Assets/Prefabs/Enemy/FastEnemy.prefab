@@ -14,8 +14,10 @@ GameObject:
   - component: {fileID: 1760397295298033927}
   - component: {fileID: -3810469231608920644}
   - component: {fileID: -8821069682125059534}
+  - component: {fileID: 2064137349921535762}
+  - component: {fileID: 5150173677140723747}
   m_Layer: 9
-  m_Name: Enemy
+  m_Name: FastEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.16126, y: 0.57806, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -86,7 +88,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 2747690628134850419, guid: a9716c16a44a94eed9b5c90fbf4d9bdd, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.9783717, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -107,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14317405379eeca46805582775f1512d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyChase
-  speed: 1
+  moveSpeed: 4
 --- !u!50 &1760397295298033927
 Rigidbody2D:
   serializedVersion: 5
@@ -147,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70af0421683ff684bacd7a648928aa1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  maxHp: 3
+  maxHp: 2
   xpOrbPrefab: {fileID: 1834613783331677199, guid: cd75a126e60f3044b9387a2732056396, type: 3}
 --- !u!61 &-8821069682125059534
 BoxCollider2D:
@@ -195,3 +197,29 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 0.890625}
   m_EdgeRadius: 0
+--- !u!114 &2064137349921535762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7235518898601139794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5369b837b530bcf4aadfb90c649de9c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  contactDamage: 1
+  damageTickSeconds: 0.5
+--- !u!114 &5150173677140723747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7235518898601139794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55979bb32319f074d9d151254498f6fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyContactDamage

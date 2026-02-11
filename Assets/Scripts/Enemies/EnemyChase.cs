@@ -1,31 +1,28 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class EnemyChase : MonoBehaviour
 {
-    public float speed = 0.5f;
-    Transform player;
+    public float moveSpeed = 2f;
+
+    Rigidbody2D rb;
+    Transform target;
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player")?.transform;
+        // simplest: find player once
+        target = FindFirstObjectByType<PlayerMovement>().transform;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        if (!player) return;
-
-        Vector2 dir = (player.position - transform.position).normalized;
-        transform.position += (Vector3)(dir * speed * Time.deltaTime);
+        if (!target) return;
+        Vector2 dir = ((Vector2)target.position - rb.position).normalized;
+        rb.linearVelocity = dir * moveSpeed;
     }
-
-    void OnTriggerStay2D(Collider2D other)
-    {
-        var ph = other.GetComponentInParent<PlayerHealth>();
-        if (ph != null)
-        {
-            ph.TakeDamage(1);
-        }
-    }
-
-
 }
