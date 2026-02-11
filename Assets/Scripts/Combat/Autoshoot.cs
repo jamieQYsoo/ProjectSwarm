@@ -4,6 +4,8 @@ public class AutoShooter : MonoBehaviour
 {
     public Projectile projectilePrefab;
     public float fireInterval = 0.6f;
+    public int damage = 1;
+    public float projectileSpeedMultiplier = 1f;
 
     float timer;
 
@@ -36,6 +38,8 @@ public class AutoShooter : MonoBehaviour
         Vector2 dir = (nearest.position - transform.position).normalized;
 
         Projectile p = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        p.damage = damage;
+        p.speed *= projectileSpeedMultiplier;
         p.Init(dir);
     }
 }

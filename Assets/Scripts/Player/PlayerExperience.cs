@@ -6,6 +6,8 @@ public class PlayerExperience : MonoBehaviour
     public int level = 1;
     public int xpToLevel = 5;
 
+    public LevelUp levelUpManager;
+
     public void Add(int amt)
     {
         xp += amt;
@@ -13,7 +15,9 @@ public class PlayerExperience : MonoBehaviour
         {
             xp -= xpToLevel;
             level++;
-            xpToLevel += 3; // simple ramp
+            xpToLevel += 3;
+
+            levelUpManager?.RequestLevelUp(level);
         }
     }
 }

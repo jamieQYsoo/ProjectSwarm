@@ -10,8 +10,8 @@ public class EnemySpawner : MonoBehaviour
     public float spawnRadius = 12f;
 
     [Header("Difficulty Ramp")]
-    public float intervalMin = 0.15f;
-    public float rampPerSecond = 0.003f;
+    public float intervalMin = 0.001f;
+    public float rampPerSecond = 0.05f;
 
     float timer;
 
